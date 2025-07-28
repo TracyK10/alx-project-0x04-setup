@@ -90,7 +90,7 @@ All projects in this repository share the following technologies:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/TracyK10/alx-project-0x04-setup.git
    ```
 
 2. Navigate to the desired project directory:

@@ -1,106 +1,153 @@
-# Splash App - AI-Powered Platform
+# ALX Project 0x04: Introduction to Next.js
 
-![Splash App Homepage](/alx-project-0x03/public/assets/images/home.png)
+![Project Screenshot](/public/images/screenshot.png)
 
-Splash App is a modern, responsive web application built with Next.js, TypeScript, and Tailwind CSS. It serves as a platform for AI-powered tools and features, providing users with an intuitive interface to interact with various AI capabilities.
+This project serves as an introduction to Next.js, a React framework for building server-rendered applications. It's part of the ALX Software Engineering program and focuses on the fundamentals of Next.js, including routing, API routes, and static site generation.
 
 ## ✨ Features
 
-- **Modern UI/UX**: Clean, responsive design built with Tailwind CSS
-- **Type Safety**: Full TypeScript support for better developer experience
-- **Component-Based Architecture**: Reusable UI components for maintainability
-- **Responsive Layout**: Works seamlessly on all device sizes
-- **Custom 404 Page**: Beautiful error page with helpful navigation
-- **Performance Optimized**: Built with Next.js for optimal performance
+- **Server-Side Rendering (SSR)**: Improved SEO and performance
+- **File-based Routing**: Intuitive page-based routing system
+- **API Routes**: Build API endpoints within your Next.js application
+- **Static Site Generation (SSG)**: Pre-render pages at build time
+- **TypeScript Support**: Type-safe development experience
+- **Responsive Design**: Built with Tailwind CSS for mobile-first development
 
-## 📱 Screenshots
+## 🛠️ Tech Stack
 
-### Homepage
-![Splash App Homepage](/alx-project-0x03/public/assets/images/home.png)
-
-### 404 Error Page
-![404 Error Page](/alx-project-0x03/public/assets/images/error.png)
+- **Framework**: Next.js 13+
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Linting/Formatting**: ESLint, Prettier
+- **Build Tool**: Turbopack (Next.js default)
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18.0 or later
-- npm or yarn
+- Node.js 16.8 or later
+- npm or yarn package manager
 
 ### Installation
 
 1. Clone the repository:
+
    ```bash
-   git clone https://github.com/TracyK10/alx-project-0x03-setup.git
-   cd alx-project-0x03
+   git clone https://github.com/TracyK10/alx-project-0x04-setup.git
+   cd alx-project-0x04-setup/alx-project-0x04
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    # or
    yarn install
    ```
 
-3. Start the development server:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+### Development
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+Start the development server:
 
-## 🛠️ Project Structure
-
+```bash
+npm run dev
+# or
+yarn dev
 ```
-alx-project-0x03/
-├── components/
-│   ├── common/           # Reusable UI components
-│   │   └── Button.tsx    # Custom button component
-│   └── layouts/          # Layout components
-│       ├── Footer.tsx    # Footer component
-│       ├── Header.tsx    # Header component
-│       └── Layout.tsx    # Main layout wrapper
-├── interface/            # TypeScript interfaces
-│   └── index.tsx         # Centralized type definitions
-├── pages/
-│   ├── _app.tsx          # Main App component
-│   ├── _document.tsx     # Custom Document
-│   ├── index.tsx         # Home page
-│   └── 404.tsx           # Custom 404 page
-├── public/               # Static files
-│   └── assets/
-│       └── images/       # Image assets
-├── styles/               # Global styles
-│   └── globals.css       # Global CSS with Tailwind
-└── package.json          # Project dependencies
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## 📁 Project Structure
+
+```text
+alx-project-0x04/
+├── components/         # Reusable UI components
+│   ├── common/        # Common components (Button, Card, etc.)
+│   └── layouts/       # Layout components (Header, Footer, etc.)
+├── pages/             # Application pages and API routes
+│   ├── api/           # API routes
+│   ├── _app.tsx       # Custom App component
+│   ├── _document.tsx  # Custom Document component
+│   └── index.tsx      # Home page
+├── public/            # Static assets
+├── styles/            # Global styles
+└── README.md          # Project documentation
+```
+
+## 🌟 Next.js Features
+
+This project demonstrates key Next.js features:
+
+### File-based Routing
+
+Next.js has a file-system based router built on the concept of pages. When a file is added to the `pages` directory, it's automatically available as a route.
+
+```typescript
+// pages/about.tsx
+const About = () => {
+  return <div>About Page</div>;
+};
+
+export default About;
+```
+
+### API Routes
+
+API routes let you create API endpoints inside a Next.js app. They can be deployed as Serverless Functions.
+
+```typescript
+// pages/api/hello.ts
+export default function handler(req, res) {
+  res.status(200).json({ name: 'John Doe' });
+}
+```
+
+### Data Fetching
+
+Next.js provides multiple methods for data fetching:
+
+1. **getStaticProps**: Fetch data at build time
+2. **getServerSideProps**: Fetch data on each request
+3. **getStaticPaths**: Specify dynamic routes to pre-render
+
+```typescript
+// Example of getStaticProps
+export async function getStaticProps() {
+  const res = await fetch('https://api.example.com/data');
+  const data = await res.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
 ```
 
 ## 🎨 Styling
 
-This project uses:
-- **Tailwind CSS** for utility-first styling
-- **React Icons** for iconography
-- Custom CSS in `globals.css` for global styles
+This project uses Tailwind CSS for styling:
 
-## 🔍 Code Organization
+- **Utility-First**: Rapid UI development with utility classes
+- **Responsive Design**: Built-in responsive modifiers
+- **Dark Mode**: Support for dark mode with `dark:` variant
+- **Customization**: Extend the default theme in `tailwind.config.js`
 
-- **Components**: Reusable UI components are organized by feature
-- **Interfaces**: TypeScript interfaces are centralized in the `interface` directory
-- **Pages**: Each route has its own file in the `pages` directory
-- **Styles**: Global styles and Tailwind configuration
+## 🧪 Testing
 
-## 🛠 Built With
+Run tests with:
 
-- [Next.js](https://nextjs.org/) - The React Framework for Production
-- [TypeScript](https://www.typescriptlang.org/) - TypeScript is a typed superset of JavaScript
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
-- [React Icons](https://react-icons.github.io/react-icons/) - Popular icons for React projects
+```bash
+npm test
+# or
+yarn test
+```
 
-## 🙏 Acknowledgments
+## 📝 License
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [React Icons](https://react-icons.github.io/react-icons/)
+This project is part of the ALX Software Engineering program.
+
+## 📧 Contact
+
+Project Link: [https://github.com/TracyK10/alx-project-0x04-setup](https://github.com/TracyK10/alx-project-0x04-setup)
+Author: Tracy K
