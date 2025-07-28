@@ -1,7 +1,5 @@
 # ALX Project 0x04: Introduction to Next.js
 
-![Project Screenshot](/public/images/screenshot.png)
-
 This project serves as an introduction to Next.js, a React framework for building server-rendered applications. It's part of the ALX Software Engineering program and focuses on the fundamentals of Next.js, including routing, API routes, and static site generation.
 
 ## ✨ Features
